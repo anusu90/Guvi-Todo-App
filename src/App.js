@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
+
 import './App.css';
+import LeftCol from "./left-col/left-col"
+import MiddleCol from './middle-col/middle-col';
+import RightCol from './right-col/right-col';
 
 function App() {
+
+  const [task, setTask] = useState({ title: "", discription: "" });
+  const [list, setList] = useState([]);
+  const [displayItem, setdisplayItem] = useState({});
+
+  // const handleClick = () => { }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-4">
+            <LeftCol setTask={setTask} task={task} list={list} setList={setList}></LeftCol>
+          </div>
+          <div className="col-lg-4">
+            <MiddleCol list={list} displayItem={displayItem} setdisplayItem={setdisplayItem}></MiddleCol>
+          </div>
+          <div className="col-lg-4">
+            <RightCol displayItem={displayItem}></RightCol>
+
+          </div>
+        </div>
+      </div>
+
+
+    </React.Fragment>
   );
 }
 
