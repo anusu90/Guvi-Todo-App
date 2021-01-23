@@ -1,6 +1,6 @@
 import React from 'react'
 
-
+//9934012129 - pick up patna
 
 const LeftCol = (props) => {
 
